@@ -11,7 +11,7 @@ local RunService = game:GetService("RunService")
 
 -- Create ScreenGui
 local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "PetStealerUI"
+screenGui.Name = "ScripterXUI"
 screenGui.Parent = game.CoreGui
 
 -- Main Frame
@@ -27,7 +27,7 @@ mainFrame.Parent = screenGui
 
 -- Title
 local title = Instance.new("TextLabel")
-title.Text = "Pet Stealer"
+title.Text = "ScripterXSteal"
 title.Size = UDim2.new(1, 0, 0, 30)
 title.BackgroundTransparency = 1
 title.TextColor3 = Color3.fromRGB(255, 255, 255)
