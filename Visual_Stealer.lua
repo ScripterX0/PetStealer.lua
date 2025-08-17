@@ -1,6 +1,6 @@
 --[[
 Script Name: ScriptByteX - Pet Stealer
-Title: Pet Stealer
+Title: ScripterX
 Made by ScripterX
 NOTE: This script is 100% VISUAL ONLY.
 It does not actually steal anything. Just for fun GUI demo.
@@ -11,7 +11,7 @@ local RunService = game:GetService("RunService")
 
 -- Create ScreenGui
 local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "ScripterXUI"
+screenGui.Name = "PetStealerUI"
 screenGui.Parent = game.CoreGui
 
 -- Main Frame
@@ -27,7 +27,7 @@ mainFrame.Parent = screenGui
 
 -- Title
 local title = Instance.new("TextLabel")
-title.Text = "ScripterXSteal"
+title.Text = "ScripterX"
 title.Size = UDim2.new(1, 0, 0, 30)
 title.BackgroundTransparency = 1
 title.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -69,7 +69,7 @@ stealBtn.Font = Enum.Font.SourceSansBold
 stealBtn.TextScaled = true
 stealBtn.Parent = mainFrame
 
--- Credits (fixed position + smaller text)
+-- Credits
 local credits = Instance.new("TextLabel")
 credits.Text = "Made by ScripterX"
 credits.Size = UDim2.new(1, 0, 0, 18)
@@ -106,9 +106,17 @@ local function animateRainbowText()
     end
 end
 
--- Button click
+-- Button click toggle
 stealBtn.MouseButton1Click:Connect(function()
-    if stealing then return end
-    stealing = true
-    animateRainbowText()
+    if not stealing then
+        -- Start stealing
+        stealing = true
+        stealBtn.Text = "Stop Stealing Pets"
+        task.spawn(animateRainbowText)
+    else
+        -- Stop stealing
+        stealing = false
+        statusLabel.Text = "Stealing stopped‼️"
+        stealBtn.Text = "Steal Pets"
+    end
 end)
